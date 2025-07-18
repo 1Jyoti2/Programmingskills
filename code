@@ -1,0 +1,38 @@
+problem statment 1
+Given a list of numbers and a number k,return whether any two numbers from the list add up to k. fro example,given [10,15,3,7] and k of 17,return true since 10+7 is 17.
+Bonus:Can u do this in one pass?
+#include <stdio.h>
+#include <stdbool.h>
+
+#define MAX 1000  
+bool hasPairWithSum(int arr[], int m, int k) {
+    bool hashSet[MAX] = {false};  
+
+    for (int i = 0; i < n; i++) {
+        int complement = k - arr[i];
+
+        if (complement >= 0 && complement < MAX && hashSet[complement]) {
+            return true;
+        }
+
+        if (arr[i] >= 0 && arr[i] < MAX) {
+            hashSet[arr[i]] = true;
+        }
+    }
+
+    return false;
+}
+
+int main() {
+    int arr[] = {10, 15, 3, 7};
+    int k = 17;
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    if (hasPairWithSum(arr, size, k)) {
+        printf("True\m");
+    } else {
+        printf("False\m");
+    }
+
+    return 0;
+}
